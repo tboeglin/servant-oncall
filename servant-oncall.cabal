@@ -1,0 +1,61 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 820b56e2dc6e6293cede7ec2e34da1cadc07c50f7b30b819797254185d9f01ba
+
+name:           servant-oncall
+version:        0.1.0.0
+category:       Web
+author:         Thomas Boeglin / Tharindu Galappaththi
+maintainer:     thomas.boeglin@gmail.com
+copyright:      2018 Thomas Boeglin / Tharindu Galappaththi
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    README.md
+
+library
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , ekg
+    , servant-server
+    , sqlite-simple
+    , wai
+    , warp
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_servant_oncall
+  default-language: Haskell2010
+
+executable servant-oncall-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -threaded -rtsopts "-with-rtsopts=-T -N"
+  build-depends:
+      base
+    , bytestring
+    , ekg
+    , servant-oncall
+  other-modules:
+      Paths_servant_oncall
+  default-language: Haskell2010
+
+test-suite spec
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  other-modules:
+      Paths_servant_oncall
+  default-language: Haskell2010
