@@ -2,7 +2,7 @@ name: servant-oncall
 version:             0.1.0.0
 description:
 license:             BSD3
-license-file:        LICENSE
+#license-file:        LICENSE
 author:              Thomas Boeglin / Tharindu Galappaththi
 maintainer:          thomas.boeglin@gmail.com
 copyright:           2018 Thomas Boeglin / Tharindu Galappaththi
@@ -20,11 +20,15 @@ ghc-options:
 
 library:
   source-dirs: src
-  exposed-modules: Lib
+  exposed-modules:
+    - Lib
+    - Models
+    - Queries
   dependencies:
     - base >= 4.7 && < 5
     - aeson
     - ekg
+    - mtl
     - servant-server
     - sqlite-simple
     - wai
