@@ -9,44 +9,25 @@ module Lib
     , app
     ) where
 
-import GHC.Generics
-import Data.Aeson
--- import Data.Aeson.TH
-import qualified Data.List as DL
 import Data.Maybe (fromJust)
+import Models
 import Network.Wai
 import Network.Wai.Handler.Warp
 import Servant
+import qualified Data.List as DL
 
-data User = User
-  { userId        :: Int
-  , userTeamId :: Int
-  , userName  :: String
-  , phoneNumber :: String
-  , email :: String
-  } deriving (Eq, Show, Generic)
+cp :: Team
+cp = Team 1 "team1"
+df :: Team
+df = Team 2 "team2"
 
-data Team = Team
-  { teamId :: Int
-  , teamName :: String
-  } deriving (Eq, Show, Generic)
-
-instance ToJSON User
-instance ToJSON Team
-
--- $(deriveJSON defaultOptions ''User)
-
-
-contentPlatform = Team 1 "team1"
-dragonfruit = Team 2 "team2"
 teams :: [Team]
-teams = [contentPlatform, dragonfruit]
+teams = [cp, df]
 
-user1 = User 1 1 "john doe" "" "john@doe.com"
+user1 :: User
+user1 = User 1 (Just 1) "john doe" "" "john@doe.com"
 users :: [User]
 users = [user1]
-
-
 
 type UserAPI =  "users" :> Get '[JSON] [User]
 type TeamAPI = "team" :> Capture "teamId" Int :> Get '[JSON] Team
@@ -73,4 +54,3 @@ api = Proxy
 
 -- server :: Server API
 -- server = return users
-
