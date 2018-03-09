@@ -6,7 +6,7 @@ module Queries
 import Database.SQLite.Simple
 
 userTableStatement :: Query
-userTableStatement = "CREATE TABLE IF NOT EXISTS USERS(userId INT PRIMARY KEY, userTeamId INT NOT NULL, userName VARCHAR(100) NOT NULL, phoneNumber VARCHAR(20) NOT NULL, email VARCHAR(100) NOT NULL"
+userTableStatement = "CREATE TABLE IF NOT EXISTS USERS(userId INT PRIMARY KEY, userTeamId INT, userName VARCHAR(100) NOT NULL, phoneNumber VARCHAR(20) NOT NULL, email VARCHAR(100) NOT NULL"
 
 teamTableStatement :: Query
 teamTableStatement = "CREATE TABLE IF NOT EXISTS TEAM(teamId INT PRIMARY KEY, teamName VARCHAR(50) NOT NULL" 
