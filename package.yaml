@@ -31,6 +31,7 @@ library:
     - mtl
     - servant-server
     - sqlite-simple
+    - time
     - wai
     - warp
 
