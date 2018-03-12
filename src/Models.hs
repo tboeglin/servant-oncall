@@ -9,6 +9,7 @@ where
 
 import Data.Aeson
 import GHC.Generics
+import Data.Time
 import Database.SQLite.Simple
 
 -- Incomplete models
